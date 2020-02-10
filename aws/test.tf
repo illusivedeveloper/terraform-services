@@ -1,9 +1,8 @@
 provider "aws" {
   region                 = "us-east-1"
-  profile                = "aws_ayush"
+  profile                = "default"
 }
-
-
+/*
 terraform {
   backend "http" {
     address = "http://192.168.104.110:5000/terraformaws"
@@ -12,15 +11,21 @@ terraform {
     aws = ">= 2.7.0"
   }
 }
-
+*/
+/*
+terraform {
+  backend "pg" {
+    conn_str = "postgresql://terraform:terraformaws@192.168.100.72:5432/terraformdb"
+  }
+}
+*/
 module "ec2_cluster" {
   source                 = "terraform-aws-modules/ec2-instance/aws"
   version                = "~> 2.0"
 
   name                   = "my-cluster"
-  instance_count         = 5
+  instance_count         = 8
 
-  #region                 = "us-east-1"
   ami                    = "ami-04b9e92b5572fa0d1"
   instance_type          = "t2.micro"
   key_name               = "useast"
@@ -39,7 +44,6 @@ module "ec2_cluster" {
 data "terraform_remote_state" "foo" {
   backend = "http"
   config = {
-    address = "http://192.168.104.110:5000/terraformaws/"
-    update_method = "POST"
+    address = "http://192.168.104.110:5000/terraformaws"
   }
-} */
+}*/
