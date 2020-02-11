@@ -1,0 +1,9 @@
+region = "us-east-1"
+profile = "default"
+name = "TerraformExample"
+instance_count = "5"
+ami = "ami-04b9e92b5572fa0d1"
+instance_type = "t2.micro"
+key_name = "useast"
+vpc_security_group_ids = ["sg-05db7c41"]
+subnet_id = "subnet-50660e7e"
