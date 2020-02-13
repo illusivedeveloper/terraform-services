@@ -1,4 +1,4 @@
-# AWS Authentication Methods
+# AWS Terraform Authentication Methods
 Terraform provides several means of providing credentials for authentication. They are mentioned as follows:
 1. Static
 2. Environment variables
