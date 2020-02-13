@@ -55,3 +55,15 @@ provider "aws" {
 ```
 This method is the preferred method for both production and testing.
 
+# EC2 Role
+This method is only applicable when the terraform script is run from an EC2 instance workstation using IAM Instance Profile using IAM Roles. This is the best method if running on EC2 instance.
+We can specify the role in the terraform script as follows:
+```
+provider "aws" {
+  assume_role {
+    role_arn     = "arn:aws:iam::ACCOUNT_ID:role/ROLE_NAME"
+    session_name = "SESSION_NAME"
+    external_id  = "EXTERNAL_ID"
+  }
+}
+```
