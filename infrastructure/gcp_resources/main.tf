@@ -17,7 +17,6 @@ resource "google_compute_instance" "default" {
     }
   }
 
-  // Local SSD disk
   scratch_disk {
     interface = "SCSI"
   }
@@ -26,7 +25,6 @@ resource "google_compute_instance" "default" {
     network = "default"
 
     access_config {
-      // Ephemeral IP
     }
   }
 

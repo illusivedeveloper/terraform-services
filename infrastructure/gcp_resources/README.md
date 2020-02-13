@@ -11,3 +11,6 @@ provider "google" {
   region      = "us-central1"
 }
 ```
+
+# Additional Input Attributes
+The additional input resource attributes can be passed on to main.tf file from [here](https://www.terraform.io/docs/providers/google/d/datasource_compute_instance.html#attributes-reference).
