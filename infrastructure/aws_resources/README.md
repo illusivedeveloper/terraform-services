@@ -67,3 +67,5 @@ provider "aws" {
   }
 }
 ```
+# Additional Input parameters
+Additional input parameters can be added to main.tf file. The can be found here: [EC2 Instance Inputs](https://github.com/terraform-aws-modules/terraform-aws-ec2-instance#inputs)
