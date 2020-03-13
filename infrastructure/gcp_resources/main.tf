@@ -1,40 +1,33 @@
 provider "google" {
-  credentials = file("account.json")
-  project     = "my-project-id"
-  region      = "us-central1"
+  credentials = file(var.file_path)
+  project     = var.project_id
+  region      = var.region
+  zone        = var.zone
 }
 
-resource "google_compute_instance" "default" {
-  name         = "test"
-  machine_type = "n1-standard-1"
-  zone         = "us-central1-a"
+resource "random_id" "instance_id" {
+  byte_length = 8
+}
 
-  tags = ["foo", "bar"]
+
+resource "google_compute_instance" "vm-instance" {
+  name         = "${var.name}-${random_id.instance_id.hex}"
+  machine_type = var.machine_type
 
   boot_disk {
     initialize_params {
-      image = "debian-cloud/debian-9"
+      image = var.image
     }
   }
 
-  scratch_disk {
-    interface = "SCSI"
-  }
-
   network_interface {
-    network = "default"
-
+    network = var.network
     access_config {
     }
   }
 
   metadata = {
-    foo = "bar"
+    ssh-keys = "${var.user}:${file(var.ssh_key)}"
   }
 
-  metadata_startup_script = "echo hi > /test.txt"
-
-  service_account {
-    scopes = ["userinfo-email", "compute-ro", "storage-ro"]
-  }
 }

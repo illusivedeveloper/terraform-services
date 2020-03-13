@@ -1,6 +1,9 @@
 # Azure Terraform Authentication Methods
 
 The preferred method and simplest developer friendly for single or multiple azure subscription according to me would be to install the [azure-cli](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-apt?view=azure-cli-latest) tool and sign-in using one of the methods mentioned [here](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+
+Another preferred method used with this script is described [here](https://docs.microsoft.com/en-us/azure/terraform/terraform-install-configure).
+
 Then in the "main.tf" terraform script specify the providers section:
 ```
 provider "azurerm" {

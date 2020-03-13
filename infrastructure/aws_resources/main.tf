@@ -1,6 +1,8 @@
 provider "aws" {
   region  = var.region
   profile = var.profile
+  #access_key = var.access_key
+  #secret_key = var.secret_key
 }
 module "ec2_cluster" {
   source  = "terraform-aws-modules/ec2-instance/aws"
@@ -19,9 +21,30 @@ module "ec2_cluster" {
   tags = {
     Terraform   = "true"
     Environment = "dev"
+    Name        = "Slave"
   }
 }
 
+/*
+module "ec2_cluster-master" {
+  source  = "terraform-aws-modules/ec2-instance/aws"
+  version = "~> 2.0"
+
+  ami            = var.ami
+  instance_type  = "t2.medium"
+  instance_count = "1"
+  name           = "Master"
+  tags = {
+    Terraform   = "true"
+    Environment = "dev"
+    Name        = "Master"
+  }
+  key_name               = var.key_name
+  monitoring             = true
+  vpc_security_group_ids = var.vpc_security_group_ids
+  subnet_id              = var.subnet_id
+}
+*/
 /*
 terraform {
   backend "http" {
@@ -44,7 +67,7 @@ terraform {
 /*
 terraform {
   backend "pg" {
-    conn_str = "postgresql://terraform:terraformaws@192.168.100.72:5432/terraformdb"
+    conn_str = "postgresql://terraform:terraformaws@192.168.100.66:5432/terraformdb"
   }
 }
 */
