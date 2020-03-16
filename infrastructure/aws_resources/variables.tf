@@ -1,21 +1,23 @@
 variable "region" {
   default = "us-east-1"
 }
-
+/*
 variable "profile" {
   default = "default"
 }
-/*
+*/
+
 variable "access_key" {
     default = ""
 }
 variable "secret_key" {
     default = ""
 }
-*/
+/*
 variable "name" {
   default = "Slave"
 }
+*/
 variable "instance_count" {
   default = "5"
 

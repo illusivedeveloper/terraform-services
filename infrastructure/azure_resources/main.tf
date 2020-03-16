@@ -12,7 +12,7 @@ module "linuxservers" {
   vm_hostname                   = var.vm_hostname
   nb_public_ip                  = "0"
   remote_port                   = "22"
-  nb_instances                  = "2"
+  nb_instances                  = var.nb_instances
   vm_os_publisher               = var.vm_os_publisher
   vm_os_offer                   = var.vm_os_offer
   vm_os_sku                     = var.vm_os_sku

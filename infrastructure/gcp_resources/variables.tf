@@ -15,6 +15,10 @@ variable "zone" {
   default = "us-central1-a"
 }
 
+variable "instance_count" {
+  default = 3
+}
+
 variable "name" {
   default = "terraform-test"
 }

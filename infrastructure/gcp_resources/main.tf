@@ -11,7 +11,8 @@ resource "random_id" "instance_id" {
 
 
 resource "google_compute_instance" "vm-instance" {
-  name         = "${var.name}-${random_id.instance_id.hex}"
+  count = var.instance_count
+  name         = "${var.name}-${count.index}"
   machine_type = var.machine_type
 
   boot_disk {

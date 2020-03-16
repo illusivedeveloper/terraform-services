@@ -22,6 +22,10 @@ variable "vm_hostname" {
   default = "terraform"
 }
 
+variable "nb_instances" {
+  default = "2"
+}
+
 variable "vm_os_publisher" {
   default = "Canonical"
 }
